@@ -31,6 +31,10 @@ function initState() {
 initState();
 
 function flipCoin() {
+  if (balance < 0.005) {
+    alert("You're out of money!");
+    return;
+  }
   const coin = findSelectedCoin();
   const headsOrTails = (Math.random() >= 0.5)? 'heads' : 'tails';
   const modifier = coin[headsOrTails];
@@ -110,13 +114,14 @@ function logHistory(counter, headsOrTails, modifier, diff, balance) {
 }
 
 function calculateSummary(counter, history) {
-  let allWins = history.filter(e => e.win);
-  let allLosses = history.filter(e => e.lose);
+  const allWins = history.filter(e => e.win);
+  const allLosses = history.filter(e => e.lose);
+  const totalResults = allLosses.length + allWins.length;
   return {
     totalFlips: counter,
     totalWins: allWins.length,
     totalLosses: allLosses.length,
-    winPercentage: allWins.length / (allLosses.length + allWins.length) * 100,
+    winPercentage: totalResults === 0 ? 0 : (allWins.length / totalResults * 100),
     totalAmountWon: allWins.reduce((acc, e) => acc + e.diff, 0),
     totalAmountLost: allLosses.reduce((acc, e) => acc + e.diff, 0),
     averageBalance: history.reduce((acc, e) => acc + e.balance, 0) / history.length,
