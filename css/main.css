@@ -263,6 +263,14 @@ td {
   text-align: center;
 }
 
+tr.win-row {
+  color: green;
+}
+
+tr.lose-row {
+  color: red;
+}
+
 #container {
   padding: 2%;
   text-align: center;

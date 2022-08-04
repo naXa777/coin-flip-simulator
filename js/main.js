@@ -56,6 +56,7 @@ function reset() {
 function addTableRow(counter, headsOrTails, modifier, diff, balance) {
   const body = document.querySelector("#transactions tbody");
   const newRow = body.insertRow();
+  newRow.className = headsOrTails === 'heads' ? 'lose-row' : 'win-row';
   insertCell(newRow, counter);
   insertCell(newRow, headsOrTails === 'heads' ? 'LOSE' : 'WIN');
   insertCell(newRow, (diff > 0 ? '+' : '') + diff.toFixed(2) + '$');
