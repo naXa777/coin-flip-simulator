@@ -12,7 +12,6 @@
   <meta property="og:url" content="">
   <meta property="og:image" content="">
 
-  <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
 
@@ -28,33 +27,35 @@
     <div class="inner">
 
       <div class="container">
-        <h2>Pick a coin that will affect your deposit:</h2>
+        <div class="dot-border">
 
-        <ul>
-          <li>
-            <input type="radio" id="f-option" name="coin" value="0" checked>
-            <label for="f-option">🪙 -29% / +40%</label>
-            <div class="check"></div>
-          </li>
+          <h2>Pick a coin that will affect your deposit:</h2>
 
-          <li>
-            <input type="radio" id="s-option" name="coin" value="1">
-            <label for="s-option">💰 -41% / +70%</label>
-            <div class="check"></div>
-          </li>
+          <ul>
+            <li>
+              <input type="radio" id="f-option" name="coin" value="0" checked>
+              <label for="f-option">🪙 -29% / +40%</label>
+              <div class="check"></div>
+            </li>
 
-          <li>
-            <input type="radio" id="t-option" name="coin" value="2">
-            <label for="t-option">(₿) -67% / +200%</label>
-            <div class="check"></div>
-          </li>
-        </ul>
+            <li>
+              <input type="radio" id="s-option" name="coin" value="1">
+              <label for="s-option">💰 -41% / +70%</label>
+              <div class="check"></div>
+            </li>
+
+            <li>
+              <input type="radio" id="t-option" name="coin" value="2">
+              <label for="t-option">(₿) -67% / +200%</label>
+              <div class="check"></div>
+            </li>
+          </ul>
+        </div>
 
         <br>
         <div>
           <b id="balance">BALANCE: $1000.00</b>
-          <br />
-          <b id="counter">FLIPS: 0</b>
+          <b id="counter" class="flip-counter">ROUND #1</b>
         </div>
         <br />
 
@@ -62,11 +63,48 @@
           <button onclick="flipCoin()" class="golden-btn">FLIP</button>
           <button onclick="reset()" class="reset-btn">RESET</button>
         </div>
+
+        <hr>
+
+        <table id="summary" class="full-width">
+          <caption>Summary</caption>
+          <tbody>
+          <tr>
+            <th>Flips</th>
+            <td id="total-flips">0</td>
+          </tr>
+          <tr>
+            <th>Wins</th>
+            <td id="total-wins" class="win-row">0</td>
+          </tr>
+          <tr>
+            <th>Losses</th>
+            <td id="total-losses" class="lose-row">0</td>
+          </tr>
+          <tr>
+            <th>Win Rate</th>
+            <td id="win-percentage">0%</td>
+          </tr>
+          <tr>
+            <th>Total Amount Won</th>
+            <td id="total-amount-won" class="win-row">$0.00</td>
+          </tr>
+          <tr>
+            <th>Total Amount Lost</th>
+            <td id="total-amount-lost" class="lose-row">$0.00</td>
+          </tr>
+          <tr class="hidden">
+            <th>Average Balance</th>
+            <td id="average-balance">$1000.00</td>
+          </tr>
+          </tbody>
+        </table>
+
       </div>
 
       <hr>
 
-      <table id="transactions">
+      <table id="transactions" class="full-width">
         <caption>Log</caption>
         <thead>
           <tr>

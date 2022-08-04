@@ -255,7 +255,7 @@ table, th, td {
   border: 1px solid black;
 }
 
-table {
+.full-width {
   width: 100%;
 }
 
@@ -263,11 +263,11 @@ td {
   text-align: center;
 }
 
-tr.win-row {
+tr.win-row, td.win-row {
   color: green;
 }
 
-tr.lose-row {
+tr.lose-row, td.lose-row {
   color: red;
 }
 
@@ -336,6 +336,10 @@ tr.lose-row {
   cursor: pointer;
 }
 
+.flip-counter {
+  float: right;
+}
+
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 body, html {
@@ -348,9 +352,12 @@ body, html {
   position: relative;
   margin: 40px auto;
   height: auto;
-  width: 500px;
-  padding: 20px;
+  max-width: 500px;
+}
+
+.dot-border {
   border-style: dotted;
+  padding: 20px;
 }
 
 ul {
